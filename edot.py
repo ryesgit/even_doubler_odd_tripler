@@ -10,6 +10,8 @@ Takes in a file input, distinguishes odd from even, and then double or triple th
 3. Remember to close the txt file! (Use with operator for a foolproof execution!)
 
 '''
+from math import pow
+
 first_odd, first_even = [False, False]
 
 def edot(file_path):
@@ -22,7 +24,12 @@ def edot(file_path):
             numbers = numbers.readlines()
 
             for number in numbers:
-                print(number)
+                # If number is even
+                if(int(number.strip()) % 2 == 0):
+                    store_to_file(int(number), 'even')
+                # If number is odd
+                else:
+                    store_to_file(int(number), 'odd')
 
     except FileNotFoundError:
         raise f'File {file_path} does not exist.'
@@ -30,6 +37,9 @@ def edot(file_path):
 def store_to_file(number, mode):
 
     global first_odd, first_even
+
+    # Determine exponent based on mode
+    exponent = 2 if mode == 'even' else 3
 
     # If number is first on list, create a new file or overwrite existing
     if not (first_odd and first_even):
@@ -39,3 +49,11 @@ def store_to_file(number, mode):
         
         if not first_even and mode == 'even':
             first_even = True
+
+        with open(f'{mode}.txt', 'w') as odd_or_even_file:
+            odd_or_even_file.write(f'{str(int(pow(number, exponent)))}\n')
+    else:
+        with open(f'{mode}.txt', 'a') as odd_or_even_file:
+            odd_or_even_file.write(f'{str(int(pow(number, exponent)))}\n')
+
+edot('integers.txt')
