@@ -41,7 +41,7 @@ def store_to_file(number, mode):
 
     # Determine exponent based on mode
     exponent = 2 if mode == 'even' else 3
-
+    filename = 'double' if mode == 'even' else 'triple'
     # If number is first on list, create a new file or overwrite existing
     if not (first_odd and first_even):
         # These will determine whether the first odd or even have already been identified
@@ -51,8 +51,8 @@ def store_to_file(number, mode):
         if not first_even and mode == 'even':
             first_even = True
 
-        with open(f'{mode}.txt', 'w') as odd_or_even_file:
+        with open(f'{filename}.txt', 'w') as odd_or_even_file:
             odd_or_even_file.write(f'{str(int(pow(number, exponent)))}\n')
     else:
-        with open(f'{mode}.txt', 'a') as odd_or_even_file:
+        with open(f'{filename}.txt', 'a') as odd_or_even_file:
             odd_or_even_file.write(f'{str(int(pow(number, exponent)))}\n')
