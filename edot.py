@@ -17,7 +17,11 @@ def edot(file_path):
     file_path = 'integers.txt' if file_path == '' else file_path
     try:
         with open(file_path, 'r') as numbers:
-            pass
+            # Iterate through every number from numbers.txt
+            numbers = numbers.readlines()
+
+            for number in numbers:
+                print(number)
 
     except FileNotFoundError:
         raise f'File {file_path} does not exist.'
