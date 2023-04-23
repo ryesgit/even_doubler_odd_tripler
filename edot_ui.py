@@ -1,11 +1,10 @@
 import PySimpleGUI as sg
 from edot import edot
 
-TITLE = "Even And Odd Extractor"
+TITLE = "Even Doubler Odd Tripler (EDOT)"
 
-sg.theme('GrayGrayGray')
+sg.theme('DarkTeal10')
 
-window = sg.Window(TITLE)
 
 layout = [
     [sg.Text('', size=(20,1)), sg.Text(TITLE, font=('Any 20'), auto_size_text=True, justification='center'), sg.Text('', size=(20,1))],
@@ -14,7 +13,7 @@ layout = [
     [sg.Button('Upload'), sg.Button('Quit')]
 ]
 
-window.layout(layout)
+window = sg.Window(TITLE, layout, element_justification='center')
 
 while True:
     event, values = window.read()
