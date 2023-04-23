@@ -12,7 +12,8 @@ Takes in a file input, distinguishes odd from even, and then double or triple th
 '''
 from math import pow
 
-first_odd, first_even = [False, False]
+first_odd = False
+first_even = False
 
 def edot(file_path):
 
@@ -55,5 +56,3 @@ def store_to_file(number, mode):
     else:
         with open(f'{mode}.txt', 'a') as odd_or_even_file:
             odd_or_even_file.write(f'{str(int(pow(number, exponent)))}\n')
-
-edot('integers.txt')
