@@ -1,5 +1,8 @@
 # Even Doubler Odd Tripler (EDOT)
 Takes in a file input, distinguishes odd from even, and then double or triple them.
+*Note to avoid confusion:*
+*This program takes the square of even numbers, the cube of odd numbers, and stores them into separate files.*
+*In hindsight, a better descriptive title would be Even Squared Odd Cubed. The current one has a nice ring to it though, so it was kept anyway.*
 
 1. Take a file input
 2. Iterate through all the numbers from file input
